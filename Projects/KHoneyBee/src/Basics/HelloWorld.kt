@@ -26,6 +26,9 @@ fun main(args: Array<String>) {
         println()
         println()
         exceptions()
+        namedArguments()
+        println()
+        println()
 }
 
 private fun declarationAndDefination() {
