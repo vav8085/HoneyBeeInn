@@ -1,3 +1,5 @@
+import java.io.IOException
+
 var age = 22
 val name: String = "Peter"
 
@@ -6,10 +8,24 @@ val lastName: String? = null
 
 fun main(args: Array<String>) {
         declarationAndDefination() //RIGHT this will throw null pointer exception if a is null
+        println()
+        println()
         conditionalStatements()
+        println()
+        println()
         collections()
+        println()
+        println()
         loopingStatements()
-
+        println()
+        println()
+        functions()
+        println()
+        println()
+        namedArguments()
+        println()
+        println()
+        exceptions()
 }
 
 private fun declarationAndDefination() {
@@ -51,7 +67,7 @@ fun conditionalStatements() {
         //if the value is not returned from the expression, x will be assigned the value -> Unit which is equivilant to void in java
 
         val str: String? = "hello"
-       // println(str.length) // Will not compile because str is nullable
+        // println(str.length) // Will not compile because str is nullable
         if(str!=null){
                 println(str.length)  //Kotlin understands that this statement will execute only if str is not null so it wont give compile time error
         }
@@ -74,9 +90,9 @@ fun conditionalStatements() {
 
 fun collections() {
         /**
-                Kotlin separates collections from mutable collections.
-                List will have all the methods to get the collection
-                while MutableList will have the methods to change the collection
+        Kotlin separates collections from mutable collections.
+        List will have all the methods to get the collection
+        while MutableList will have the methods to change the collection
          */
         val array = arrayOf(1,2,3,4,5)
         println(array.joinToString()) //because arrays do not have toString method.
@@ -101,7 +117,7 @@ fun loopingStatements() {
 
         }
         println()
-        for(i in 10 downTo 1){    //For decreasing sequence
+        for(i in 10 downTo 1){    //For decreasing sequence, downTo is an infix function
                 print("$i ") //$ is used to dereference
 
         }
@@ -127,6 +143,43 @@ fun loopingStatements() {
                 print("$i ")
                 i++
         }
+
 }
+fun functions() {
+        println(addNumbers(5,4))
+        println(multiplyNumbers(5,4))
+}
+
+fun addNumbers(a: Int,b: Int): Int{ // name(param: type): returnType
+        return a+b
+}
+fun multiplyNumbers(a: Int,b: Int): Int = a*b //when there is only one statement in the function
+
+
+fun namedArguments() {
+        val concatenated = concat(listOf("Kotlin","Java","Scala"))
+        println(concatenated)   // without param, this will take default value, if default value is not given this will give a runtime error
+        println(concat(listOf("Kotlin","Java","Scala")," : "))  //with param
+        println(concat(separator = ":",items = listOf("Kotlin","Java","Scala")))        //Named arguments, order does not matter here
+
+}
+fun concat(items: List<String>, separator: String = ", ") = items.joinToString(separator) //default value if separator is set here
+
+
+fun exceptions() {
+        val input = try {                       //Assigning the return of try catch to input
+            throwsIOException()
+        }catch (e: IOException){
+                "${e.localizedMessage}"         //Return the string message to input variable
+        }finally {
+                println("finally")
+        }
+        println(input)                          //print the value of input
+}
+fun throwsIOException(): String{
+        throw IOException("IOException thrown!")                //In kotlin there are no checked exceptions, so if there is a checked exception then we
+                                                                // do not have to throw it
+}
+
 
 
