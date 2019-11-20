@@ -7,7 +7,7 @@ val lastName: String? = null
 
 
 fun main(args: Array<String>) {
-        declarationAndDefination() //RIGHT this will throw null pointer exception if a is null
+        declarationAndDefination() //RIGHT this will throw null pointer exception if a is null ..
         println()
         println()
         conditionalStatements()
