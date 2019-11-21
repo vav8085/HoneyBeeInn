@@ -7,29 +7,29 @@ val lastName: String? = null
 
 
 fun main(args: Array<String>) {
-        declarationAndDefination() //RIGHT this will throw null pointer exception if a is null ..
-        println()
-        println()
-        conditionalStatements()
-        println()
-        println()
-        collections()
-        println()
-        println()
+//        declarationAndDefination() //RIGHT this will throw null pointer exception if a is null ..
+//        println()
+//        println()
+//        conditionalStatements()
+//        println()
+//        println()
+//        collections()
+//        println()
+//        println()
         loopingStatements()
         println()
         println()
-        functions()
-        println()
-        println()
-        namedArguments()
-        println()
-        println()
-        exceptions()
-        namedArguments()
-        println()
-        println()
-        nullSafety()
+//        functions()
+//        println()
+//        println()
+//        namedArguments()
+//        println()
+//        println()
+//        exceptions()
+//        namedArguments()
+//        println()
+//        println()
+//        nullSafety()
 }
 
 fun nullSafety() {
@@ -54,12 +54,18 @@ fun nullSafety() {
         var e: Int? = null //works fine
         //also
         var f: String? = "Hello"
-        f = null // works fine now
+        //f = null // works fine now
         //Note that if you ever use f then you cannot use f.length
         //val length: Int?  = f.length // wont work
         //val length  = f.length // again wont work
         val length  = f?.length // works fine!
         //to call a method of a nullable type always check for null
+
+        //Also check that if we are using a nullable inside an if statement then you dont have to put a ? against it
+        //so if we
+        if(f!=null){
+                println(f.length) //no need to put ?
+        }
 }
 
 private fun declarationAndDefination() {
@@ -128,7 +134,7 @@ fun collections() {
         List will have all the methods to get the collection
         while MutableList will have the methods to change the collection
          */
-        val array = arrayOf(1,2,3,4,5)
+        val array = arrayOf(1,2,3,4,5) // you cannot create an empty array but you can create an empty list just like in java
         println(array.joinToString()) //because arrays do not have toString method.
 
         val array2 = intArrayOf(1,2,3,3,5)
@@ -140,7 +146,7 @@ fun collections() {
         println(set.joinToString())
 
         val map = mapOf(Pair(1,"Hi"), "hi" to 2,Pair(3,"Hello")) //map accepts Pair varargs objects
-        val mutableMap = mutableMapOf(1 to "kotlin",2 to "Android", Pair(3,"Java")) //the two operator returns a tuple of type Pair
+        val mutableMap = mutableMapOf(1 to "kotlin",2 to "Android", Pair(3,"Java")) //the to operator returns a tuple of type Pair, to is an infix function
 }
 
 
@@ -169,8 +175,12 @@ fun loopingStatements() {
         println()
         val languages = listOf("English", "Hindi", 1)
         for (lang in languages){
-                print("$lang ")
+               for(c in lang.toString()){
+                       print("$c ")
+               }
+                print("")
         }
+        println()
         /** While loops */
         var i=1
         while (i<=10){

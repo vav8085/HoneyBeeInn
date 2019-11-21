@@ -1,10 +1,6 @@
 package Basics
 
 fun main(args: Array<String>) {
-
-
-
-
     fun LambdasBasics(){
         { x: Int -> x*2}  //A lambda function in Kotlin
         // Declaration      Definition
