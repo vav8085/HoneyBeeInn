@@ -29,6 +29,37 @@ fun main(args: Array<String>) {
         namedArguments()
         println()
         println()
+        nullSafety()
+}
+
+fun nullSafety() {
+        //As we know that kotlin allows us to create variables both with types and without specifying a type
+        //SO we can define
+        var a: Int = 25
+        //we can also define a variable
+        var b = 25
+        // usually all the variables that have types are not nullable
+        //so if you define a variable or even try to assign a to null the compiler throws an error.
+        //a = null //will not work
+        //we can assign b to null though only during its first assignment, for next assignment if its assigned a null then it can be null
+        //otherwise it cannot be assigned as a null because its considered a not null
+        //b = null //wont work
+        var c = null //works though
+        c = null // works again because compiler now knows c is nullable.
+        //also note that:
+        //var d: Int = null // wont work because Int is not a nullable type
+
+        //Nullable types
+        //To make a type nullable just add a ? during declaration
+        var e: Int? = null //works fine
+        //also
+        var f: String? = "Hello"
+        f = null // works fine now
+        //Note that if you ever use f then you cannot use f.length
+        //val length: Int?  = f.length // wont work
+        //val length  = f.length // again wont work
+        val length  = f?.length // works fine!
+        //to call a method of a nullable type always check for null
 }
 
 private fun declarationAndDefination() {
