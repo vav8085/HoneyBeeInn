@@ -5,6 +5,8 @@ fun main(){
     multiplyByFive()
     multiplier(number2 = 4, number1 = 5)
     println(squareOf(5))
+    val (number, square) = squareOf(5) //pair is returned as  val (a,b) where a and b are the pair values
+    println(number)
 }
 fun multiplyByFive(input: Int = 4){ //Default value
     println("Multiplying $input by 5 returns ${input*5}")
