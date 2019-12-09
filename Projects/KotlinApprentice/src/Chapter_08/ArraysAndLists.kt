@@ -1,7 +1,13 @@
 package Chapter_08
 
+import kotlin.math.min
+
 fun main(){
- creatingArrays()
+    creatingArrays()
+    creatingLists()
+    creatingMutableLists()
+    slicing()
+    findingElementInList()
 }
 
 /**
@@ -26,5 +32,53 @@ fun creatingArrays(){
 
     for(i in 1..primitiveIntArray.size-1){
         println(primitiveIntArray.get(i))
+    }
+}
+
+fun creatingLists(){
+    //kotlin lists are just like java lists. the method listOf is used to create a list in kotlin and returns the same
+    //java List object. To create an array list you can use method arrayListOf
+    //the lists created using these methods are immutable
+    //you can also create an empty list by passing no arguments to listOf method
+
+    val listOfIntegers = listOf<Int>(2,6,7,3,4)
+    val subscribers = listOf<Int>() //empty list. immutable empty lists do not have much use
+}
+fun creatingMutableLists(){
+    val outerPlanets = mutableListOf<String>("Jupiter","Saturn", "Uranus", "Neptune")
+    val exoPlanets = mutableListOf<String>()
+    //lists also have isEmpty method just like in java
+
+    //lists have the first and last methods to print the first and last values in teh list
+    val firstOuterPlanet = outerPlanets.first()
+    println(firstOuterPlanet)
+    val lastOuterPlanet = outerPlanets.last()
+    println(lastOuterPlanet)
+
+    //lists also have min and max methods that return the minimum and maximum values in the list
+    val minPlanet = outerPlanets.min()
+    println(minPlanet) // returns jupiter because j< n or u or s
+
+    //you can get an element at an index from list or arrays by using name[x] or .get(x) methods
+    val firstPlanet = outerPlanets[0]
+    val firstPlanetAgain = outerPlanets.get(0)
+}
+fun slicing(){
+    //TO get some of the values from the list you can also slice them
+
+    val listOfCars = listOf<String>("Subaru","Mazda","Mercedes","Kia","Honda","Toyota")
+    val last4Cars = listOfCars.slice(2..5) //returns a list
+    println(last4Cars.joinToString())
+
+}
+fun findingElementInList(){
+    //you can use the in operator to find if a certain element exist in the list
+    val listOfCars = listOf<String>("Subaru","Mazda","Mercedes","Kia","Honda","Toyota")
+    if("Mazda" in listOfCars){
+        println("Mazda exists!")
+    }
+    //you can also use contains() method just like in java
+    if(listOfCars.contains("Tesla")){
+        println("Tesla exists!")
     }
 }
