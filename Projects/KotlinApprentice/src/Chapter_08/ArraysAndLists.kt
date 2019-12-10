@@ -8,6 +8,8 @@ fun main(){
     creatingMutableLists()
     slicing()
     findingElementInList()
+    addingRemovingElements()
+    listIteration()
 }
 
 /**
@@ -18,7 +20,8 @@ fun creatingArrays(){
     val evenNumbers= arrayOf(2,4,6,8) //doing control shift P here will show the type as Array<Int>
     val arrayOfMultipleOfTen = Array<Int>(5,{i -> i * 10}) //the lambda is calculated for each value of array, i is the index here
     println(arrayOfMultipleOfTen.joinToString())
-
+    val arrayx = Array<Int>(5,{it}) //the lambda is calculated for each value of array, i is the index here
+    println("arrayx ${arrayx.joinToString()}")
     //THe arrayOf function returns an array of objects. in terms of java this is array of Integer type and not int type
     //To create an array of primitives you can use intArrayOf(), floatArrayOf() methods
 
@@ -81,4 +84,37 @@ fun findingElementInList(){
     if(listOfCars.contains("Tesla")){
         println("Tesla exists!")
     }
+}
+fun addingRemovingElements(){
+    val listOfCars = mutableListOf<String>("Subaru","Mazda","Mercedes","Kia","Honda","Toyota")
+    // you can add an element using add method of the list
+    listOfCars.add("Ferrari")
+    //you can also add an item at a certain position in the list
+    listOfCars.add(4,"Aston Martin") //notice that list starts from 0
+    println(listOfCars.joinToString())
+    //you can use remove or removeAAt methods to remove items from a list
+    listOfCars.remove("Honda")
+    listOfCars.removeAt(4)
+    println(listOfCars.joinToString())
+    //to update an element you can either remove than add but thats slow so you can use indexing to replace
+    listOfCars.set(4,"Tata")
+    println(listOfCars.joinToString())
+}
+fun listIteration(){
+    val listOfCars = mutableListOf<String>("Subaru","Mazda","Mercedes","Kia","Honda","Toyota")
+    for(car in listOfCars){
+        println(car)
+    }
+    listOfCars.forEach { println(it) }
+    println()
+    for(car in 1..listOfCars.size-1){
+        println(listOfCars[car])
+    }
+}
+fun nullableAndList(){
+    //Sometimes a list can be nullable and sometimes the elements inside it can be
+    //You have to be careful when defining list or its elements nullable
+    val listOfCars: List<String>? = null //A nullable list
+    val listOfCars2: List<String?> = mutableListOf("Kia",null,"Toyota") //list of cars with null values
+
 }
