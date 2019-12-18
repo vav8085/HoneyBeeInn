@@ -18,11 +18,26 @@ fun incrementNumber(number: Int, incrementer: (Int) -> (Int)){
 //you can use this function anywhere you like
 fun mainFunction(){
     incrementNumber(2, lambdaFunction)
+    incrementNumber(2, ::incrementFunction)
+    //doing same thing by passing lambda inline
+    incrementNumber(2){a:Int -> a+1} // lambda can be moved out of function as this is final argument to incrementNumber
 }
+
+//Now suppose we had a function that increments and has the same signature (Int) -> (Int), it can also be passed to incrementNumber
+fun incrementFunction(a: Int): Int{
+    return a + 1
+}
+
+//You can also define a lambda inline
+
+/*----------------------------------------------------*/
+
+
 // lets do the same using an anonymous object
 // First create an interface of type incrementer
 interface Incrementer{
     fun increment(number: Int): Int
+
 }
 // Add incrementerFunction that takes an integer and above interface
 fun incrementNumber(number: Int, incrementer: Incrementer){

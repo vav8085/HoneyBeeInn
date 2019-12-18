@@ -7,6 +7,7 @@ public class MainClass {
             public void printText(String text) {
                 System.out.println(text);
             }
+
         });
     }
     public static void takesLambda(String value, PrinterInterface1 interface1){
