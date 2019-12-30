@@ -13,6 +13,8 @@ import io.reactivex.disposables.CompositeDisposable
  *
  * rest all is same, you get an observable returned from create, you call subscribe from it and
  * return a disposable and then you can dispose this disposable
+ *
+ * If you dont dispose the disposable and do not call onError or onComplete then memory will leak
  */
 object Create {
     fun create(){

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.vav.reactiveprogramming.Chapter_01.Create
 import com.vav.reactiveprogramming.Chapter_01.Disposing
+import com.vav.reactiveprogramming.Chapter_01.Factory
 import com.vav.reactiveprogramming.Chapter_01.Observables
 
 class MainActivity : AppCompatActivity() {
@@ -16,5 +17,6 @@ class MainActivity : AppCompatActivity() {
         Disposing.disposingAndTerminating()
         Disposing.compositeDisposables()
         Create.create()
+        Factory.factory()
     }
 }
