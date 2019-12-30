@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import io.reactivex.Observable
 import io.reactivex.Observer
+import io.reactivex.rxkotlin.subscribeBy
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         observables()
+        disposingAndTerminating()
     }
 
     private fun observables() {
@@ -30,5 +32,28 @@ class MainActivity : AppCompatActivity() {
         listObservable.subscribe({
             it.forEach { println(it) }
         })
+        println("expanded lambda")
+        listObservable.subscribe({list: List<Int> -> list.forEach { item: Int -> println(item) }})
+
+        //Notice here that just, fromIterable etc are called operators on observables. These two above are operators
+        //used to create observables.
+        println("empty observable")        // unit = void in java
+        val emptyObservable = Observable.empty<Unit>()
+        //The subscribeBy method lets you specify which block you want to execute
+        emptyObservable.subscribeBy (onNext = { println(it)}, onError = { println(it.localizedMessage)},onComplete = { println("Completed")})
+
+        println("observable from range")
+        val rangeObservable = Observable.range(1,15)
+        rangeObservable.subscribeBy (onNext = {println(it)})
+
+        println("print fibonacci")
+        val fiboObservable = Observable.range(1,5)
+        fiboObservable.subscribeBy (onNext = {
+            //ToDo implement a fibonacci sequence in a method and call it here
+        })
+    }
+
+    private fun disposingAndTerminating() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
