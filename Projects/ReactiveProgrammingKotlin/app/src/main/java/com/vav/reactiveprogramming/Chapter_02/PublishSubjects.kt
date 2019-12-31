@@ -20,7 +20,7 @@ object PublishSubjects {
      * an exception to this are error and completion events which will still be sent
      */
     fun publishSubjects(){
-        println("Subjects:")
+        println("PublishSubjects:")
         val disposables = CompositeDisposable()
         val publishSubject = PublishSubject.create<Int>() //creating a publishSubject
         publishSubject.onNext(1) //set data

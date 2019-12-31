@@ -11,6 +11,7 @@ object BehaviorSubjects {
      * These are useful when we want to update views with some existing value until new value is observed.
      */
     fun behaviorSubjects(){
+        println("BehaviorSubject:")
         val disposables = CompositeDisposable()
 
         val behaviorSubject = BehaviorSubject.createDefault(0)

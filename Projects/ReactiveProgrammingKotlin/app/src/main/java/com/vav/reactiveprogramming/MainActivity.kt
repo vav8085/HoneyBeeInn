@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.vav.reactiveprogramming.Chapter_01.*
 import com.vav.reactiveprogramming.Chapter_02.BehaviorSubjects
 import com.vav.reactiveprogramming.Chapter_02.PublishSubjects
+import com.vav.reactiveprogramming.Chapter_02.ReplaySubjects
 
 /**
  * Understand rx java as Observables, observers and subscriber objects
@@ -38,5 +39,6 @@ class MainActivity : AppCompatActivity() {
         //Chapter 2
         PublishSubjects.publishSubjects()
         BehaviorSubjects.behaviorSubjects()
+        ReplaySubjects.replaySubjects()
     }
 }
