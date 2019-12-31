@@ -3,7 +3,8 @@ package com.vav.reactiveprogramming
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.vav.reactiveprogramming.Chapter_01.*
-import com.vav.reactiveprogramming.Chapter_02.Subjects
+import com.vav.reactiveprogramming.Chapter_02.BehaviorSubjects
+import com.vav.reactiveprogramming.Chapter_02.PublishSubjects
 
 /**
  * Understand rx java as Observables, observers and subscriber objects
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         Factory.factory()
         SingleMaybeCompletable.SingleMaybeCompletable()
         //Chapter 2
-        Subjects.subjects()
+        PublishSubjects.publishSubjects()
+        BehaviorSubjects.behaviorSubjects()
     }
 }
