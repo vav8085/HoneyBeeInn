@@ -28,6 +28,8 @@ object SingleMaybeCompletable {
         })
         //val disposable = single.subscribe{println(it)} // this does not work due to some reason
         val disposable = single.subscribeBy {println(it)}
+        val disposable2 = single.subscribeBy { println(it) }
         disposable.dispose()
+        disposable2.dispose()
     }
 }

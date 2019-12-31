@@ -3,7 +3,9 @@ package com.vav.reactiveprogramming.Chapter_01
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter
 import io.reactivex.ObservableOnSubscribe
+import io.reactivex.Observer
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 /**
  * Create function is used to create custom observables of a specific type
@@ -28,8 +30,21 @@ object Create {
                 emitter.onComplete()
             }
         })
-        val disposable = observable.subscribe({ println(it)})
+        val disposable = observable.subscribe({println(it)})
+//        val disposable = observable.subscribe(object : Observer<String>{
+//            override fun onComplete() {
+//            }
+//
+//            override fun onSubscribe(d: Disposable) {
+//            }
+//
+//            override fun onNext(t: String) {
+//            }
+//
+//            override fun onError(e: Throwable) {
+//            }
+//        })
         disposables.add(disposable)
-        disposable.dispose()
+        disposables.dispose()
     }
 }
