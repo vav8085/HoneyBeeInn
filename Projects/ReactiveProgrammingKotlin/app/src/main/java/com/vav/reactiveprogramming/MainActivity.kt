@@ -2,10 +2,7 @@ package com.vav.reactiveprogramming
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.vav.reactiveprogramming.Chapter_01.Create
-import com.vav.reactiveprogramming.Chapter_01.Disposing
-import com.vav.reactiveprogramming.Chapter_01.Factory
-import com.vav.reactiveprogramming.Chapter_01.Observables
+import com.vav.reactiveprogramming.Chapter_01.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,5 +15,6 @@ class MainActivity : AppCompatActivity() {
         Disposing.compositeDisposables()
         Create.create()
         Factory.factory()
+        SingleMaybeCompletable.SingleMaybeCompletable()
     }
 }

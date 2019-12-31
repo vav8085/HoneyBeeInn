@@ -3,6 +3,15 @@ package com.vav.reactiveprogramming.Chapter_01
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
 
+/**
+ * The way to work with observables is simply return an observable using some method and then subscribe to it somewhere else in the
+ * code.
+ * So suppose you and using MVVM architecture and have a Repository which contains a NetworkDataSource instance. You can return an observable from
+ * getData() method of the NetworkDataSource. This observable can be subscribed in Repository or can be passed to UI layers.
+ * always remember to dispose it after using.
+ *
+ * THe data in the Observable can be set using just, fromIterable and create methods.
+ */
 object Observables {
      fun observables() {
         //creating an observable using just
