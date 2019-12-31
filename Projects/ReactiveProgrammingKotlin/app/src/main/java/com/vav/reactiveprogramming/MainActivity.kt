@@ -6,6 +6,7 @@ import com.vav.reactiveprogramming.Chapter_01.*
 import com.vav.reactiveprogramming.Chapter_02.BehaviorSubjects
 import com.vav.reactiveprogramming.Chapter_02.PublishSubjects
 import com.vav.reactiveprogramming.Chapter_02.ReplaySubjects
+import com.vav.reactiveprogramming.Chapter_02.RxRelay
 
 /**
  * Understand rx java as Observables, observers and subscriber objects
@@ -40,5 +41,7 @@ class MainActivity : AppCompatActivity() {
         PublishSubjects.publishSubjects()
         BehaviorSubjects.behaviorSubjects()
         ReplaySubjects.replaySubjects()
+        //ToDo AsyncSubject which only returns last event
+        RxRelay.rxRelay()
     }
 }
