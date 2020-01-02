@@ -9,6 +9,10 @@ object BehaviorSubjects {
      * BehaviorSubject can be initialized with a default value. When a subscriber
      *
      * These are useful when we want to update views with some existing value until new value is observed.
+     *
+     * Usually we dont pass subjects as observables. THe reason is because they can be used to send data.
+     *
+     * We usually call the hide() method of this subject to get its Observable. We can pass this observable and pass it everywhere.
      */
     fun behaviorSubjects(){
         println("BehaviorSubject:")
@@ -29,4 +33,5 @@ object BehaviorSubjects {
         behaviorSubject.onComplete() //complete will be sent to both subscribers
         disposables.dispose()
     }
+
 }
