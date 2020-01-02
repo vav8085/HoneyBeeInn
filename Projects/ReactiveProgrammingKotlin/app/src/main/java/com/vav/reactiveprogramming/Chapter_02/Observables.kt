@@ -1,4 +1,4 @@
-package com.vav.reactiveprogramming.Chapter_01
+package com.vav.reactiveprogramming.Chapter_02
 
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy

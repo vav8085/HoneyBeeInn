@@ -1,4 +1,4 @@
-package com.vav.reactiveprogramming.Chapter_02
+package com.vav.reactiveprogramming.Chapter_03
 
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy

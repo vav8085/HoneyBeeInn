@@ -1,11 +1,9 @@
-package com.vav.reactiveprogramming.Chapter_01
+package com.vav.reactiveprogramming.Chapter_02
 
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter
 import io.reactivex.ObservableOnSubscribe
-import io.reactivex.Observer
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 
 /**
  * Create function is used to create custom observables of a specific type
