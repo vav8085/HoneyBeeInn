@@ -7,6 +7,8 @@ import com.vav.reactiveprogramming.Chapter_03.BehaviorSubjects
 import com.vav.reactiveprogramming.Chapter_03.PublishSubjects
 import com.vav.reactiveprogramming.Chapter_03.ReplaySubjects
 import com.vav.reactiveprogramming.Chapter_03.RxRelay
+import com.vav.reactiveprogramming.Chapter_05.FilteringOperators
+import java.util.logging.Filter
 
 /**
  * Understand rx java as Observables, observers and subscriber objects
@@ -24,6 +26,8 @@ import com.vav.reactiveprogramming.Chapter_03.RxRelay
  * now observable has your observers object and it can call various methods of observer.
  * This is automatically done by just, fromIterable etc methods. You can use create method to call methods on observer and
  * send data. THe data will be sent to all subscribers.
+ *
+ * operators can be used on Observables. THey can be of various types
  */
 class MainActivity : AppCompatActivity() {
 
@@ -43,5 +47,11 @@ class MainActivity : AppCompatActivity() {
         ReplaySubjects.replaySubjects()
         //ToDo AsyncSubject which only returns last event
         RxRelay.rxRelay()
+        //Chapter 3
+        FilteringOperators.ignoreElements()
+        FilteringOperators.elementAt()
+        FilteringOperators.filter()
+        FilteringOperators.skip()
+        FilteringOperators.skipWhile()
     }
 }
