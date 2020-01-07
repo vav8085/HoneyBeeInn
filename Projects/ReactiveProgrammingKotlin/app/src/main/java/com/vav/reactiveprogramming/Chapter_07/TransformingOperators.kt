@@ -91,7 +91,8 @@ object TransformingOperators {
         val honda = BehaviorSubject.createDefault("City")
         val hondaObservable = honda.hide()
         val cars = PublishSubject.create<Observable<String>>()
-        val carsObservable: Observable<String> = cars.flatMap{it} //flatmap returns an observable of type int
+        val carsObservable: Observable<String> = cars.flatMap{it} //flatmap returns an observable of type int, notice that
+        // flatMap accepts a function. You can filter, skip or do anything inside this function which will be applied to each observable
         val carsDisposable = carsObservable.subscribe{ println(it)}
         cars.onNext(mazdaObservable)
         cars.onNext(audiObservable)

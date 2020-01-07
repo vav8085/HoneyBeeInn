@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         TransformingOperators.switchMap()
         TransformingOperators.materialize()
         //Chapter 9 - Combining operators
-
+        CombiningOperators.startWith()
+        CombiningOperators.concat()
     }
 }
