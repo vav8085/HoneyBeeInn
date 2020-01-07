@@ -5,6 +5,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
+import java.lang.RuntimeException
 
 object TransformingOperators {
     /**
@@ -84,7 +85,7 @@ object TransformingOperators {
         println("More Flatmap:")
         val disposables = CompositeDisposable()
         val mazda = BehaviorSubject.createDefault("Mazda6")
-        val mazdaObservable = mazda.hide().sorted()// ToDO not working
+        val mazdaObservable = mazda.hide().sorted()
         val audi = BehaviorSubject.createDefault("Audi TT")
         val audiObservable = audi.hide()
         val honda = BehaviorSubject.createDefault("City")
@@ -102,7 +103,58 @@ object TransformingOperators {
         disposables.add(carsDisposable)
         disposables.dispose()
     }
-    fun switchMap(){
 
+    /**
+     * Switchmap is used when we want to switch between two or more streams and flatten their results.
+     * Whenever a new stream is added the older ones new next events are ignored.
+     */
+    fun switchMap(){
+        println("SwitchMap:")
+        val disposables = CompositeDisposable()
+        val mazda = BehaviorSubject.createDefault("Mazda 6")
+        val audi = BehaviorSubject.createDefault("Audi TT")
+        val honda = BehaviorSubject.createDefault("City")
+        val cars = PublishSubject.create<BehaviorSubject<String>>()
+        val carsObservable: Observable<String> = cars.switchMap{it} //flatmap returns an observable of type int
+        val carsDisposable = carsObservable.subscribe{ println(it)}
+        cars.onNext(mazda)
+        mazda.onNext("Mazda 3")
+        cars.onNext(audi)
+        mazda.onNext("Mazda Miata") //will be skipped as audi has joined
+        audi.onNext("A8")
+        cars.onNext(honda)
+        audi.onNext("R8") //will be skipped as honda has joined
+        honda.onNext("Civic")
+        disposables.add(carsDisposable)
+        disposables.dispose()
+    }
+    fun materialize(){
+        println("Materialize/ Dematerialize:")
+        val disposables = CompositeDisposable()
+        val student1 = BehaviorSubject.createDefault(70)
+        val student2 = BehaviorSubject.createDefault(80)
+        val student3 = BehaviorSubject.createDefault(90)
+        val students = PublishSubject.create<BehaviorSubject<Int>>()
+        val studentsObservable = students.flatMap { it.materialize() }
+            .filter { if(it.error!=null){
+                println(it.error)
+                false
+        }else true
+        }.dematerialize<Int>() //so if there is an error on one stream then we have to handle it. But with materialize
+                                // we can convert it to a notification. But notification will need dematerialize so we filter the
+                                // materialized event and do not return the error values.
+        val studentsDisposable = studentsObservable.subscribe { println(it) } //THis wont print actual value but Notifications like: OnNextNotification[72]
+        students.onNext(student1)
+        students.onNext(student2)
+        students.onNext(student3)
+        student1.onNext(71)
+        student1.onNext(72)
+        student2.onNext(80)
+        student2.onNext(81)
+        student2.onError(RuntimeException("Error!"))
+        student3.onNext(91)
+        student3.onNext(92)
+        disposables.add(studentsDisposable)
+        disposables.dispose()
     }
 }

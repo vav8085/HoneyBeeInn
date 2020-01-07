@@ -9,6 +9,7 @@ import com.vav.reactiveprogramming.Chapter_03.ReplaySubjects
 import com.vav.reactiveprogramming.Chapter_03.RxRelay
 import com.vav.reactiveprogramming.Chapter_05.FilteringOperators
 import com.vav.reactiveprogramming.Chapter_07.TransformingOperators
+import com.vav.reactiveprogramming.Chapter_09.CombiningOperators
 import io.reactivex.internal.schedulers.TrampolineScheduler
 import java.util.logging.Filter
 
@@ -36,30 +37,34 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //Chapter 1
+        //Chapter 2 - Observables
         Observables.observables()
         Disposing.disposingAndTerminating()
         Disposing.compositeDisposables()
         Create.create()
         Factory.factory()
         SingleMaybeCompletable.SingleMaybeCompletable()
-        //Chapter 2
+        //Chapter 3 - Subjects
         PublishSubjects.publishSubjects()
         BehaviorSubjects.behaviorSubjects()
         ReplaySubjects.replaySubjects()
         //ToDo AsyncSubject which only returns last event
         RxRelay.rxRelay()
-        //Chapter 3
+        //Chapter 5 - Filtering operators
         FilteringOperators.ignoreElements()
         FilteringOperators.elementAt()
         FilteringOperators.filter()
         FilteringOperators.skip()
         FilteringOperators.skipWhile()
         //ToDo Incomplete
-        //Chapter 4
+        //Chapter 7 - Transforming operators
         TransformingOperators.toList()
         TransformingOperators.map()
         TransformingOperators.flatMap()
         TransformingOperators.moreFlatMap()
+        TransformingOperators.switchMap()
+        TransformingOperators.materialize()
+        //Chapter 9 - Combining operators
+
     }
 }
