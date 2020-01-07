@@ -8,6 +8,8 @@ import com.vav.reactiveprogramming.Chapter_03.PublishSubjects
 import com.vav.reactiveprogramming.Chapter_03.ReplaySubjects
 import com.vav.reactiveprogramming.Chapter_03.RxRelay
 import com.vav.reactiveprogramming.Chapter_05.FilteringOperators
+import com.vav.reactiveprogramming.Chapter_07.TransformingOperators
+import io.reactivex.internal.schedulers.TrampolineScheduler
 import java.util.logging.Filter
 
 /**
@@ -53,5 +55,11 @@ class MainActivity : AppCompatActivity() {
         FilteringOperators.filter()
         FilteringOperators.skip()
         FilteringOperators.skipWhile()
+        //ToDo Incomplete
+        //Chapter 4
+        TransformingOperators.toList()
+        TransformingOperators.map()
+        TransformingOperators.flatMap()
+        TransformingOperators.moreFlatMap()
     }
 }
