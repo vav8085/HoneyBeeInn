@@ -1,0 +1,15 @@
+Introduction
+
+01  Mocking is the way to test the functionality of a class in isolation.
+02  Mock object do the mock of a real service.
+03  Mock objects return dummy data corresponding to some dummy input passed to it.
+
+Mockito
+
+01  Mockito is used to create mock objects.
+02  It uses java reflection to create mock objects for a given interface.
+03  Mock objects are proxy for actual implementation.
+
+We can also create an object of actual object but we have to initialize all its parameters. Mockito can do it much easily.
+
+
